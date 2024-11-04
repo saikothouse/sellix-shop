@@ -6,6 +6,7 @@ interface Product {
   description: string;
   image_url: string;
   sellix_payment_link: string;
+  price: number;
 }
 
 const ProductGrid = ({ products }: { products: Product[] }) => {
