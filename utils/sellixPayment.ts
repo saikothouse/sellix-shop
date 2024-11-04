@@ -13,7 +13,7 @@ export const createOrder = async (orderData: OrderData) => {
   try {
     const response = await axios.post(`${SELLIX_API_URL}/orders`, orderData, {
       headers: {
-        Authorization: `Bearer YOUR_SELLIX_API_KEY`,
+        Authorization: `Bearer jQnwfJCUgMoSPfntJaIS1OQWKsaM0AiuEfHqQa8zblm5Z8X5iQ5ReYLPAdwLOfjZ`,
         'Content-Type': 'application/json',
       },
     });
