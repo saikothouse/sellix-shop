@@ -1,27 +1,29 @@
 interface CartItemProps {
   item: {
-    id: string;
+    uniqid: string;
     title: string;
     price: number;
-    quantity: number;
+    image_url: string;
   };
-  onRemove: (id: string) => void;
+  removeItem: (id: string) => void;
 }
 
-const CartItem = ({ item, onRemove }: CartItemProps) => {
+const CartItem = ({ item, removeItem }: CartItemProps) => {
   return (
-    <div className="flex justify-between items-center border-b py-2">
-      <div>
-        <h3 className="font-bold">{item.title}</h3>
-        <p>Quantity: {item.quantity}</p>
-        <p>Price: ${(item.price / 100).toFixed(2)}</p>
+    <div className="border rounded-lg p-4 shadow-md mb-4">
+      <div className="flex items-center">
+        <img src={item.image_url} alt={item.title} className="w-16 h-16 object-cover mr-4 rounded-lg" />
+        <div className="flex-grow">
+          <h2 className="text-lg font-semibold">{item.title}</h2>
+          <p>${item.price / 100}</p>
+        </div>
+        <button
+          onClick={() => removeItem(item.uniqid)}
+          className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+        >
+          Remove
+        </button>
       </div>
-      <button
-        onClick={() => onRemove(item.id)}
-        className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
-      >
-        Remove
-      </button>
     </div>
   );
 };
