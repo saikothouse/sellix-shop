@@ -6,7 +6,7 @@ export const fetchProducts = async () => {
   try {
     const response = await axios.get(`${SELLIX_API_URL}/products`, {
       headers: {
-        Authorization: `Bearer YOUR_SELLIX_API_KEY`,
+        Authorization: `Bearer jQnwfJCUgMoSPfntJaIS1OQWKsaM0AiuEfHqQa8zblm5Z8X5iQ5ReYLPAdwLOfjZ`,
         'Content-Type': 'application/json',
       },
     });
@@ -21,7 +21,7 @@ export const fetchProductById = async (id: string) => {
   try {
     const response = await axios.get(`${SELLIX_API_URL}/products/${id}`, {
       headers: {
-        Authorization: `Bearer YOUR_SELLIX_API_KEY`,
+        Authorization: `Bearer jQnwfJCUgMoSPfntJaIS1OQWKsaM0AiuEfHqQa8zblm5Z8X5iQ5ReYLPAdwLOfjZ`,
         'Content-Type': 'application/json',
       },
     });
