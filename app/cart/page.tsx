@@ -3,8 +3,15 @@
 import { useState, useEffect } from 'react';
 import CartItem from '../../components/CartItem';
 
+interface CartItemType {
+  uniqid: string;
+  title: string;
+  price: number;
+  image_url: string;
+}
+
 const CartPage = () => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState<CartItemType[]>([]); // Specify the type here
 
   useEffect(() => {
     const savedCartItems = JSON.parse(localStorage.getItem('cart') || '[]');
