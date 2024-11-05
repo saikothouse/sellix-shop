@@ -1,13 +1,5 @@
 import Link from 'next/link';
-
-interface Product {
-  uniqid: string;
-  title: string;
-  description: string;
-  image_url: string;
-  sellix_payment_link: string;
-  price: number;
-}
+import { Product } from '../utils/types'; // Import the Product type
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
