@@ -5,11 +5,21 @@ import { useSearchParams } from 'next/navigation';
 import { createOrder } from '../../utils/sellixPayment';
 import { fetchProductById } from '../../utils/sellixApi';
 
+// Define an interface for the product
+interface Product {
+  uniqid: string;
+  title: string;
+  price: number;
+  image_url: string;
+  description: string;
+  // Add any other properties that your product might have
+}
+
 const CheckoutPage = () => {
   const searchParams = useSearchParams();
   const productId = searchParams.get('id');
   const [loading, setLoading] = useState(false);
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState<Product | null>(null);
   const [email, setEmail] = useState('');
 
   useEffect(() => {
