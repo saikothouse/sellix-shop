@@ -2,7 +2,17 @@ import axios from 'axios';
 
 const SELLIX_API_URL = 'https://api.sellix.io/v1';
 
-export const fetchProducts = async () => {
+// Define the Product interface here as well
+interface Product {
+  uniqid: string;
+  title: string;
+  price: number;
+  image_url: string;
+  description: string;
+  // Add any other properties that your product might have
+}
+
+export const fetchProducts = async (): Promise<Product[]> => {
   try {
     const response = await axios.get(`${SELLIX_API_URL}/products`, {
       headers: {
@@ -17,7 +27,7 @@ export const fetchProducts = async () => {
   }
 };
 
-export const fetchProductById = async (id: string) => {
+export const fetchProductById = async (id: string): Promise<Product> => {
   try {
     const response = await axios.get(`${SELLIX_API_URL}/products/${id}`, {
       headers: {
