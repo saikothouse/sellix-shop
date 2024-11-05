@@ -1,13 +1,5 @@
 import ProductCard from './ProductCard';
-
-interface Product {
-  uniqid: string;
-  title: string;
-  description: string;
-  image_url: string;
-  sellix_payment_link: string;
-  price: number;
-}
+import { Product } from '../utils/types'; // Import the Product type
 
 const ProductGrid = ({ products }: { products: Product[] }) => {
   return (
